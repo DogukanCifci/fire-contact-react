@@ -1,11 +1,12 @@
 import "./App.css";
+import AuthContextProvider from "./context/AuthContextProvider";
 import Home from "./pages/Home";
 
 function App() {
   return (
-    <div>
+    <AuthContextProvider>
       <Home />
-    </div>
+    </AuthContextProvider>
   );
 }
 

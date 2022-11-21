@@ -1,9 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import styled from "@mui/styled-engine-sc";
 
-export const MyBox = styled(Box)`
-  border: 3px solid red;
-`;
+export const MyBox = styled(Box)``;
 export const MyTypography = styled(Typography)`
   margin-bottom: 20px;
 `;

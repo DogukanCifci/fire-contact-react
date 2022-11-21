@@ -11,6 +11,7 @@ import {
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import { useState } from "react";
+import { toastSuccessNotify } from "../../utils/ToastNotify";
 
 const Form = () => {
   //=========
@@ -94,7 +95,11 @@ const Form = () => {
               <MenuItem value="Female">Female</MenuItem>
             </Select>
           </GenderBox>
-          <MyButton type="submit" variant="contained">
+          <MyButton
+            type="submit"
+            variant="contained"
+            onClick={() => toastSuccessNotify("aaaa")}
+          >
             ADD
           </MyButton>
         </FormControl>

@@ -1,12 +1,9 @@
-import { Typography } from "@mui/material";
+import TableContent from "../../Parts/TableContent";
 
 const Table = () => {
   return (
     <div>
-      <Typography variant="h5" component="h2">
-        ADD CONTACT
-      </Typography>
-      <form></form>
+      <TableContent />
     </div>
   );
 };
