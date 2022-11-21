@@ -15,7 +15,7 @@ import { useState } from "react";
 const Form = () => {
   //=========
   //Form Degiskenleri Tutuldugu
-  const [gender, setGender] = useState("Female");
+  const [gender, setGender] = useState("Gender");
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
@@ -89,6 +89,7 @@ const Form = () => {
               value={gender}
               onChange={(e) => handleChange(e.target.value)}
             >
+              <MenuItem value="Gender">Gender</MenuItem>
               <MenuItem value="Male">Male</MenuItem>
               <MenuItem value="Female">Female</MenuItem>
             </Select>
