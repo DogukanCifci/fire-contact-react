@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDvLSpApnOv9y--j2fjUxmSQO17RtydOvQ",
@@ -12,10 +12,9 @@ const firebaseConfig = {
     "https://useradd-ad1c9-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
-const app = initializeApp(firebaseConfig);
+//app ismini firebase olarak degistirdim!
+const firebase = initializeApp(firebaseConfig);
 
-const database = getDatabase(app);
-
-const db = getDatabase();
+export default firebaseConfig;
 
 //--------------//--------------//--------------Insert Data Function--------------//--------------//--------------

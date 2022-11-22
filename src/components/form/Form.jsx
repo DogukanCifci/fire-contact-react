@@ -10,11 +10,15 @@ import {
 } from "./FormStyle";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toastSuccessNotify } from "../../utils/ToastNotify";
+import { AuthContext } from "../../context/AuthContextProvider";
+import { addUser } from "../../utils/functions";
 
 const Form = () => {
   //=========
+  const { info, setInfo } = useContext(AuthContext);
+
   //Form Degiskenleri Tutuldugu
   const [gender, setGender] = useState("Gender");
   const [name, setName] = useState("");
@@ -36,9 +40,12 @@ const Form = () => {
     setGender(e);
   };
 
+  //Form submit edildiginde
   const formSubmit = (e) => {
     e.preventDefault();
     console.log("Name: ", name, "Number : ", phoneNumber, "Gender : ", gender);
+    alert("Form submit edildi");
+    addUser(name, phoneNumber, gender);
   };
   return (
     <MyBox>
@@ -59,6 +66,7 @@ const Form = () => {
             />
             <MyTextField
               type="text"
+              name="username"
               id="name"
               label="Name"
               variant="outlined"
@@ -66,6 +74,7 @@ const Form = () => {
             />
           </NameBox>
           <NumberBox>
+            {/* inputprops kullan burda  */}
             <PhoneAndroidIcon
               sx={{
                 position: "absolute",
@@ -76,6 +85,7 @@ const Form = () => {
             />
             <MyTextField
               type="number"
+              name="phoneNumber"
               label="Phone Number"
               id="number"
               variant="outlined"

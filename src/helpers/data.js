@@ -24,3 +24,5 @@ const data = [
     gender: "Male",
   },
 ];
+
+export default data;
