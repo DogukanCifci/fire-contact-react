@@ -14,17 +14,15 @@ import {
 import { AccountCircle } from "@mui/icons-material";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 
-const FormComponent = ({ info, setInfo,handleSubmit,isAdd }) => {
+const FormComponent = ({ info, setInfo, handleSubmit, isAdd }) => {
   const handleChange = (e) => {
-   
     // const name=e.target.name;
     // const value=e.target.value;
     // Yukarıdaki işlemlerin kısayolu:
     const { name, value } = e.target;
-    setInfo({...info,[name]:value})
- 
+    setInfo({ ...info, [name]: value });
+
     e.preventDefault();
-    
   };
 
   return (
@@ -34,25 +32,24 @@ const FormComponent = ({ info, setInfo,handleSubmit,isAdd }) => {
       direction="column"
       style={{ width: "300" }}
     >
-      <p className="contact-header">
-        <div>
-          <a
-            href="https://clarusway.com/"
-            className="design"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <code>{"<Clarusway/> "}</code>
-          </a>
-        </div>
-        <span className="design header">design</span>
-      </p>
-      <h2 className="contact-header">Add Contact</h2>
+      <h2
+        className="contact-header"
+        style={{ marginBottom: "20px", fontSize: "2rem", color: "#ADE792" }}
+      >
+        Contact Form
+      </h2>
 
-      <Box style={{ backgroundColor: "white", padding: "20px" }}>
+      <Box
+        style={{
+          padding: "40px",
+          backgroundColor: "#344D67",
+          borderRadius: "20px",
+        }}
+      >
         <form onSubmit={handleSubmit}>
           <Stack spacing={3} direction="column">
             <TextField
+              sx={{ backgroundColor: "white", borderRadius: "10px" }}
               variant="outlined"
               name="username"
               value={info.username}
@@ -67,6 +64,7 @@ const FormComponent = ({ info, setInfo,handleSubmit,isAdd }) => {
               }}
             />
             <TextField
+              sx={{ backgroundColor: "white", borderRadius: "10px" }}
               variant="outlined"
               name="phoneNumber"
               value={info.phoneNumber}
@@ -83,6 +81,7 @@ const FormComponent = ({ info, setInfo,handleSubmit,isAdd }) => {
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
               <InputLabel style={{ paddingLeft: "20px" }}>Gender</InputLabel>
               <Select
+                sx={{ backgroundColor: "white", borderRadius: "10px" }}
                 label="Gender"
                 name="gender"
                 variant="outlined"

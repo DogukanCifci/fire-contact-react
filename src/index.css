@@ -3,3 +3,23 @@
   margin: 0;
   padding: 0;
 }
+
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  background-image: url("https://picsum.photos/1600/900");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+}
+
+.form {
+  flex-grow: 1;
+}
+
+.contacts {
+  flex-grow: 3;
+}

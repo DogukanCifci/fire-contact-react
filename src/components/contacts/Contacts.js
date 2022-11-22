@@ -8,19 +8,29 @@ import {
   TableBody,
   Paper,
 } from "@mui/material";
-import { useFetch,DeleteUser } from "../../utils/functions";
+import { useFetch, DeleteUser } from "../../utils/functions";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-
-
-const Contacts = ({showInForm}) => {
+const Contacts = ({ showInForm }) => {
   const { isLoading, contactList } = useFetch();
 
   return (
     <div>
-      <h2 className="contact-header">Contacts</h2>
-      <TableContainer component={Paper}>
+      <h2
+        className="contact-header"
+        style={{ color: "#ADE792", fontSize: "2rem", marginBottom: "20px" }}
+      >
+        Contacts
+      </h2>
+      <TableContainer
+        component={Paper}
+        style={{
+          backgroundColor: "#344D67",
+          borderRadius: "20px",
+          color: "white",
+        }}
+      >
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -31,52 +41,77 @@ const Contacts = ({showInForm}) => {
               <TableCell align="left">Edit</TableCell>
             </TableRow>
           </TableHead>
-      
+
           <TableBody>
-          {
-            // Bilgiler gelmediği durumda Loading yazısı görünsün
-            isLoading ? (
-              <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                <TableCell colSpan={5} align="center">
-                  Loading
-                </TableCell>
-              </TableRow>
-            ):
-            contactList?.lenght===0 ? (
-              <TableRow
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-              <TableCell colSpan={5} align="center">
-                No Result Found
-              </TableCell>
-            </TableRow>
-            ) : (
-              contactList?.map((item,index)=>(
-                <TableRow>
-                  <TableCell align="left"> {item.username} </TableCell>
-                  <TableCell align="left"> {item.phoneNumber} </TableCell>
-                  <TableCell align="left"> {item.gender} </TableCell>
-                  <TableCell align="left" onClick={()=>DeleteUser(item.id)}>
-                    <DeleteIcon/>
+            {
+              // Bilgiler gelmediği durumda Loading yazısı görünsün
+              isLoading ? (
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell colSpan={5} align="center">
+                    Loading
                   </TableCell>
-                  <TableCell align="left" onClick={()=>showInForm(
-                    item.id, 
-                    item.username, 
-                    item.phoneNumber, 
-                    item.gender
-                  )}>
-                    <EditIcon/>
-                  </TableCell>
-
                 </TableRow>
-              ))
-            )
-            // Bilgiler olmadığı,boş olduğu  durumda veri bulunamadı mesajı
-            // Bilgiler geldiği zaman aşağıya yazılacak kodlar çalışsın
-          }
-
-
-            
+              ) : contactList?.lenght === 0 ? (
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell colSpan={5} align="center">
+                    No Result Found
+                  </TableCell>
+                </TableRow>
+              ) : (
+                contactList?.map((item, index) => (
+                  <TableRow>
+                    <TableCell align="left" sx={{ color: "white" }}>
+                      {item.username}
+                    </TableCell>
+                    <TableCell align="left" sx={{ color: "white" }}>
+                      {item.phoneNumber}{" "}
+                    </TableCell>
+                    <TableCell align="left" sx={{ color: "white" }}>
+                      {item.gender}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        "&:hover": {
+                          cursor: "pointer",
+                          color: "red",
+                          transition: "0.5s",
+                        },
+                      }}
+                      align="left"
+                      onClick={() => DeleteUser(item.id)}
+                    >
+                      <DeleteIcon />
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        "&:hover": {
+                          cursor: "pointer",
+                          color: "red",
+                          transition: "0.5s",
+                        },
+                      }}
+                      align="left"
+                      onClick={() =>
+                        showInForm(
+                          item.id,
+                          item.username,
+                          item.phoneNumber,
+                          item.gender
+                        )
+                      }
+                    >
+                      <EditIcon />
+                    </TableCell>
+                  </TableRow>
+                ))
+              )
+              // Bilgiler olmadığı,boş olduğu  durumda veri bulunamadı mesajı
+              // Bilgiler geldiği zaman aşağıya yazılacak kodlar çalışsın
+            }
           </TableBody>
         </Table>
       </TableContainer>
